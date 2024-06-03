@@ -2,8 +2,53 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.RecyScan" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/pale_green</item>
+        <item name="android:windowBackground">@color/pale_green</item>
+<!--        <item name="android:textColorHint">@color/dark_brown</item>-->
     </style>
 
     <style name="Theme.RecyScan" parent="Base.Theme.RecyScan" />
+
+    <style name="HeadlineText" parent="Base.Theme.RecyScan">
+        <item name="fontFamily">@font/quattrocento_bold</item>
+        <item name="android:textSize">28.5sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/dark_brown</item>
+    </style>
+
+    <style name="HeadlineText2" parent="HeadlineText">
+        <item name="fontFamily">@font/inter_bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/black</item>
+
+    </style>
+
+
+    <style name="OutlinedButtonStyle">
+        <item name="strokeColor">@color/dark_sea_green</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="android:textSize">10sp</item>
+        <item name="fontFamily">@font/inter_bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/dark_brown</item>
+
+    </style>
+
+    <style name="OutlinedTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">@color/dark_sea_green</item>
+        <item name="boxStrokeWidth">2dp</item>
+        <item name="hintTextColor">@color/dark_brown</item>
+        <item name="android:textColorHint">@color/dark_brown</item>
+    </style>
+
+
+    <style name="FixedEditTextLayout" parent="OutlinedTextInputLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginEnd">36dp</item>
+        <item name="android:layout_marginStart">36dp</item>
+    </style>
 </resources>
