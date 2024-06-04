@@ -4,6 +4,7 @@
         <!-- Customize your light theme here. -->
         <item name="colorPrimary">@color/pale_green</item>
         <item name="android:windowBackground">@color/pale_green</item>
+        <item name="android:textColor">@color/pale_green</item>
         <!--        <item name="android:textColorHint">@color/dark_brown</item>-->
     </style>
 
@@ -65,4 +66,14 @@
         <item name="android:layout_marginEnd">36dp</item>
         <item name="android:layout_marginStart">36dp</item>
     </style>
+
+    <style name="MenuTitleTextColor" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:textColor">@color/pale_green</item>
+    </style>
+
+    <style name="MenuTitleTextStyle">
+        <item name="android:fontFamily">@font/quattrocento_bold</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
 </resources>

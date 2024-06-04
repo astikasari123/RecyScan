@@ -1,11 +1,8 @@
 package com.capstone.recyscan.views
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.capstone.recyscan.R
 import com.capstone.recyscan.databinding.ActivityResultBinding
 
