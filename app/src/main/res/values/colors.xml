@@ -2,8 +2,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="pale_green">#FFEBEFEB</color>
+    <color name="pale_green">#EBEFEB</color>
     <color name="dark_brown">#393027</color>
     <color name="dark_sea_green">#447164</color>
+    <color name="gray">#808080</color>
     <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">#447164</color>
 </resources>

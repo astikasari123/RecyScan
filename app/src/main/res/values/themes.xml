@@ -21,7 +21,11 @@
         <item name="fontFamily">@font/inter_bold</item>
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">@color/black</item>
-
+    </style>
+    <style name="ToolBarStyle" parent="HeadlineText">
+        <item name="android:textSize">18sp</item>
+        <item name="homeAsUpIndicator">@drawable/back_icon</item>
+        <item name="android:textColor">@color/pale_green</item>
     </style>
 
 

@@ -1,5 +1,6 @@
 package com.capstone.recyscan.views
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.capstone.recyscan.databinding.ActivityLoginBinding
@@ -10,7 +11,12 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater).apply {
             setContentView(root)
-
+            tvBtnRegister.setOnClickListener {
+                startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
+            }
+            btnLogin.setOnClickListener {
+                startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
+            }
         }
     }
 }

@@ -30,7 +30,7 @@ class SplashActivity : AppCompatActivity() {
             }
             lifecycleScope.launch {
                 delay(SPLASH_SCREEN_DURATION.seconds)
-                startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
+                startActivity(Intent(this@SplashActivity, HomeActivity::class.java))
                 finish()
             }
 

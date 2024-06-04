@@ -6,4 +6,9 @@
     <string name="title_forgot_password">Lupa kata sandi?</string>
     <string name="title_dont_have_an_account">Belum punya akun?</string>
     <string name="title_try_register">Daftar aja dulu</string>
+    <string name="title_register">Daftar</string>
+    <string name="title_already_have_account">Sudah punya akun?</string>
+    <string name="example_name_user">Halo, Adinda</string>
+    <string name="app_description">Ubah Sampah Plastik Menjadi Solusi: Dengan aplikasi RecyScan, kamu bisa mengidentifikasi, mendaur ulang, dan mendapatkan reward dari setiap botol plastik yang kamu scan. Mari bergabung dalam gerakan untuk lingkungan lebih bersih dan masa depan yang lebih hijau!</string>
+    <string name="title_scan_garbage">Pindai\n Sampahmu!</string>
 </resources>
