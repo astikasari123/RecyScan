@@ -2,6 +2,7 @@ package com.capstone.recyscan.views
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.capstone.recyscan.R
@@ -24,6 +25,7 @@ class ProfileEditActivity : AppCompatActivity() {
         }
 
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
@@ -32,12 +34,16 @@ class ProfileEditActivity : AppCompatActivity() {
             }
 
             R.id.action_edit -> {
-                startActivity(Intent(this@ProfileEditActivity, ProfileActivity::class.java))
-                finish()
+                onBackPressedDispatcher.onBackPressed()
                 true
             }
 
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.edit_profile_menu, menu)
+        return super.onCreateOptionsMenu(menu)
     }
 }
