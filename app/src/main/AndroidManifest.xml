@@ -13,6 +13,9 @@
         android:theme="@style/Theme.RecyScan"
         tools:targetApi="31">
         <activity
+            android:name=".views.ResultActivity"
+            android:exported="false" />
+        <activity
             android:name=".views.ScanActivity"
             android:exported="false" />
         <activity

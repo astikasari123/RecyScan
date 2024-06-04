@@ -1,19 +1,19 @@
 package com.capstone.recyscan.views
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.capstone.recyscan.R
-import com.capstone.recyscan.databinding.ActivityScanBinding
+import com.capstone.recyscan.databinding.ActivityResultBinding
 
-class ScanActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityScanBinding
+class ResultActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityResultBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityScanBinding.inflate(layoutInflater).apply {
+        binding = ActivityResultBinding.inflate(layoutInflater).apply {
             setContentView(root)
             setSupportActionBar(mToolbar);
             mToolbar.apply {
@@ -22,10 +22,12 @@ class ScanActivity : AppCompatActivity() {
                     onBackPressedDispatcher.onBackPressed()
                 }
             }
-            btnResultScan.setOnClickListener {
-                startActivity(Intent(this@ScanActivity, ResultActivity::class.java))
-            }
-
+            ivResult.setImageDrawable(
+                ContextCompat.getDrawable(
+                    this@ResultActivity,
+                    R.drawable.img_sample_user
+                )
+            )
         }
 
     }
