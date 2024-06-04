@@ -14,6 +14,9 @@ class HomeActivity : AppCompatActivity() {
             btnCardScan.setOnClickListener {
                 startActivity(Intent(this@HomeActivity, ScanActivity::class.java))
             }
+            ivUserProfile.setOnClickListener {
+                startActivity(Intent(this@HomeActivity, ProfileActivity::class.java))
+            }
         }
 
     }

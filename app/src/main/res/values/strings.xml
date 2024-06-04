@@ -11,4 +11,9 @@
     <string name="example_name_user">Halo, Adinda</string>
     <string name="app_description">Ubah Sampah Plastik Menjadi Solusi: Dengan aplikasi RecyScan, kamu bisa mengidentifikasi, mendaur ulang, dan mendapatkan reward dari setiap botol plastik yang kamu scan. Mari bergabung dalam gerakan untuk lingkungan lebih bersih dan masa depan yang lebih hijau!</string>
     <string name="title_scan_garbage">Pindai\n Sampahmu!</string>
+    <string name="title_email">Email</string>
+    <string name="title_password">Kata sandi</string>
+    <string name="title_phone_number">Nomor Handphone</string>
+    <string name="sample_email">example@email.com</string>
+    <string name="sample_phone_number">086969696969</string>
 </resources>

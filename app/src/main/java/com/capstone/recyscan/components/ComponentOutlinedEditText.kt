@@ -1,14 +1,12 @@
 package com.capstone.recyscan.components
 
 import android.content.Context
-import android.content.res.ColorStateList
 import android.text.InputType
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.LinearLayout
-import androidx.core.content.ContextCompat
 import com.capstone.recyscan.R
-import com.capstone.recyscan.databinding.CustomViewEditTextBinding
+import com.capstone.recyscan.databinding.CustomViewOutlinedEditTextBinding
 import com.google.android.material.textfield.TextInputLayout
 
 class CustomViewEditText @JvmOverloads constructor(
@@ -17,8 +15,8 @@ class CustomViewEditText @JvmOverloads constructor(
     defStyleAttr: Int = 0,
 ) : LinearLayout(context, attrs, defStyleAttr) {
 
-    private var binding: CustomViewEditTextBinding =
-        CustomViewEditTextBinding.inflate(LayoutInflater.from(context), this)
+    private var binding: CustomViewOutlinedEditTextBinding =
+        CustomViewOutlinedEditTextBinding.inflate(LayoutInflater.from(context), this)
 
     var hintText: String
         get() = binding.textInputEditText.hint.toString()
@@ -41,10 +39,10 @@ class CustomViewEditText @JvmOverloads constructor(
         }
 
     init {
-        val attributes = context.obtainStyledAttributes(attrs, R.styleable.CustomViewEditText)
-        hintText = attributes.getString(R.styleable.CustomViewEditText_hintText) ?: ""
+        val attributes = context.obtainStyledAttributes(attrs, R.styleable.CustomViewOutlinedEditText)
+        hintText = attributes.getString(R.styleable.CustomViewOutlinedEditText_hintText) ?: ""
         isPasswordInputType =
-            attributes.getBoolean(R.styleable.CustomViewEditText_isPassword, false)
+            attributes.getBoolean(R.styleable.CustomViewOutlinedEditText_isPassword, false)
         attributes.recycle()
         setupInputType()
     }

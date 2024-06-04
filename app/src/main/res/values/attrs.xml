@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="CustomViewEditText">
-        <attr name="labelText" format="string" />
+    <declare-styleable name="CustomViewOutlinedEditText">
         <attr name="hintText" format="string" />
         <attr name="hintTextColor" format="color" />
         <attr name="isPassword" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomViewUnderlinedEditText">
+        <attr name="edtLabel" format="string" />
+        <attr name="setTextValue" format="string" />
+        <attr name="isPasswordType" format="boolean" />
     </declare-styleable>
 </resources>
