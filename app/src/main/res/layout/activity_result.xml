@@ -39,7 +39,7 @@
             android:id="@+id/headlide_type_of_waste"
             style="@style/HeadlineText"
             android:text="Jenis Sampah"
-            android:textSize="12sp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_result" />
@@ -49,7 +49,7 @@
             style="@style/HeadlineText"
             android:layout_marginTop="6dp"
             android:text="Jenis Sampah"
-            android:textSize="12sp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/headlide_type_of_waste" />
