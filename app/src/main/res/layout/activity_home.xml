@@ -54,46 +54,39 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_desc">
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/btn_card_scan"
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="72dp"
-            app:rippleColor="@color/gray"
-            android:layout_marginEnd="25dp"
-            app:cardBackgroundColor="@color/dark_brown"
-            app:cardCornerRadius="45dp">
+            android:layout_height="match_parent">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/iv_scanner"
-                    android:layout_width="93dp"
-                    android:layout_height="93dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:src="@drawable/scanner_icon"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                <com.capstone.recyscan.components.ComponentCustomCardButton
+                    android:id="@+id/btn_card_scan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginEnd="25dp"
+                    android:layout_marginBottom="35dp"
+                    app:cardImage="@drawable/scanner_icon"
+                    app:cardText="Pindai \nSampahmu" />
 
-                <TextView
-                    style="@style/HeadlineText"
-                    android:gravity="center"
-                    android:text="@string/title_scan_garbage"
-                    android:textColor="@color/pale_green"
-                    android:textSize="17.4sp"
-                    app:layout_constraintBottom_toBottomOf="@id/iv_scanner"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/iv_scanner"
-                    app:layout_constraintTop_toTopOf="@id/iv_scanner" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                <com.capstone.recyscan.components.ComponentCustomCardButton
+                    android:id="@+id/btn_card_history"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="25dp"
+                    android:layout_marginBottom="75dp"
+                    app:cardImage="@drawable/history_icon"
+                    app:cardText="Riwayat \nPindaianmu" />
 
-        </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
 
     </com.google.android.material.card.MaterialCardView>
 

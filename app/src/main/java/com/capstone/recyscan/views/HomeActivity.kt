@@ -28,11 +28,14 @@ class HomeActivity : AppCompatActivity() {
                     startActivity(Intent(this@HomeActivity, ScanActivity::class.java))
                 } else {
                     ActivityCompat.requestPermissions(
-                       this@HomeActivity,
+                        this@HomeActivity,
                         arrayOf(Manifest.permission.CAMERA),
                         REQUEST_CAMERA_PERMISSION
                     )
                 }
+            }
+            btnCardHistory.setOnClickListener {
+                startActivity(Intent(this@HomeActivity, HistoryActivity::class.java))
             }
             ivUserProfile.setOnClickListener {
                 startActivity(Intent(this@HomeActivity, ProfileActivity::class.java))

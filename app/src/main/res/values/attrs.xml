@@ -11,4 +11,9 @@
         <attr name="setTextValue" format="string" />
         <attr name="isPasswordType" format="boolean" />
     </declare-styleable>
+
+    <declare-styleable name="CustomViewCardButton">
+        <attr name="cardImage" format="reference" />
+        <attr name="cardText" format="string" />
+    </declare-styleable>
 </resources>
