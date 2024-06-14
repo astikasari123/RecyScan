@@ -10,7 +10,7 @@
             style="@style/HeadlineText"
             android:layout_marginStart="41dp"
             android:text="@string/title_email"
-            android:textSize="12sp"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/stack" />
 

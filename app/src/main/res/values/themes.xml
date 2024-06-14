@@ -25,7 +25,7 @@
     </style>
 
     <style name="ToolBarStyle" parent="HeadlineText">
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">25sp</item>
         <item name="homeAsUpIndicator">@drawable/back_icon</item>
         <item name="android:textColor">@color/pale_green</item>
     </style>
