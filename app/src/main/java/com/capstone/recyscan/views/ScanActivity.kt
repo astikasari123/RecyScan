@@ -28,18 +28,13 @@ class ScanActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityScanBinding.inflate(layoutInflater).apply {
             setContentView(root)
-            setSupportActionBar(mToolbar);
+            setupToolBar()
             val cameraProviderFuture = ProcessCameraProvider.getInstance(this@ScanActivity)
             cameraProviderFuture.addListener({
                 cameraProvider = cameraProviderFuture.get()
                 bindCameraUseCases()
             }, ContextCompat.getMainExecutor(this@ScanActivity))
-            mToolbar.apply {
-                setNavigationIcon(R.drawable.back_icon);
-                setNavigationOnClickListener {
-                    onBackPressedDispatcher.onBackPressed()
-                }
-            }
+
             btnResultScan.setOnClickListener {
                 takePhoto()
             }
@@ -47,6 +42,17 @@ class ScanActivity : AppCompatActivity() {
         }
 
     }
+
+    private fun ActivityScanBinding.setupToolBar() {
+        setSupportActionBar(mToolbar);
+        mToolbar.apply {
+            setNavigationIcon(R.drawable.back_icon);
+            setNavigationOnClickListener {
+                onBackPressedDispatcher.onBackPressed()
+            }
+        }
+    }
+
     private fun ActivityScanBinding.bindCameraUseCases() {
         val rotation = viewFinder.display.rotation
 
@@ -74,6 +80,7 @@ class ScanActivity : AppCompatActivity() {
             Log.e("", "Use case binding failed", ex)
         }
     }
+
     private fun ActivityScanBinding.takePhoto() {
         val imageCapture = imageCapture ?: return
 
@@ -92,7 +99,11 @@ class ScanActivity : AppCompatActivity() {
                         Intent(
                             this@ScanActivity,
                             ResultActivity::class.java
-                        ).putExtra(ResultActivity.IMAGE_URI_VALUE, savedUri.toString())
+                        ).apply {
+
+                            putExtra(ResultActivity.IMAGE_URI_VALUE, savedUri.toString())
+                            putExtra(ResultActivity.TOOLBAR_TITLE, true)
+                        }
                     )
                 }
 
@@ -103,10 +114,11 @@ class ScanActivity : AppCompatActivity() {
             }
         )
     }
+
     private fun createFile(): File {
         val timestamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
         val storageDirectory = externalMediaDirs.firstOrNull()
         return File.createTempFile("IMG_${timestamp}_", ".jpg", storageDirectory)
-        }
+    }
 
 }

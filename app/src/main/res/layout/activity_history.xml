@@ -20,10 +20,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_history"
         android:layout_marginTop="42dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         tools:listitem="@layout/item_history"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mToolbar"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
