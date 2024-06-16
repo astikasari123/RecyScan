@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class EntityHistory (
+data class EntityHistory(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     val id: Int = 0,
@@ -17,4 +17,5 @@ data class EntityHistory (
     val image: String,
 
     @ColumnInfo(name = "date")
-    val date:String)
+    val date: String,
+)

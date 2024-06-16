@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
@@ -13,6 +14,7 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import com.capstone.recyscan.R
 import com.capstone.recyscan.databinding.ActivityScanBinding
+import com.capstone.recyscan.viewmodel.UploadImageViewModel
 import com.google.android.material.snackbar.Snackbar
 import java.io.File
 import java.nio.file.Files.createFile
@@ -24,6 +26,7 @@ class ScanActivity : AppCompatActivity() {
     private lateinit var binding: ActivityScanBinding
     private var imageCapture: ImageCapture? = null
     private var cameraProvider: ProcessCameraProvider? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityScanBinding.inflate(layoutInflater).apply {
@@ -42,6 +45,8 @@ class ScanActivity : AppCompatActivity() {
         }
 
     }
+
+
 
     private fun ActivityScanBinding.setupToolBar() {
         setSupportActionBar(mToolbar);
