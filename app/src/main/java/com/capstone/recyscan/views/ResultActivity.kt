@@ -3,6 +3,7 @@ package com.capstone.recyscan.views
 import android.annotation.SuppressLint
 import android.net.Uri
 import android.os.Bundle
+import android.text.util.Linkify
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -41,6 +42,10 @@ class ResultActivity : AppCompatActivity() {
                     it.data.let {
                         tvResultWaste.text = it?.result
                         edtAreaCount.setText("${it?.priceAfter} \n ${it?.priceBefore}")
+                        edtAreaRecommendation.setText("${it?.youtubeLink}")
+                        Linkify.addLinks(edtAreaRecommendation, Linkify.WEB_URLS)
+                        edtAreaRecommendation.movementMethod = android.text.method.LinkMovementMethod.getInstance()
+                        edtAreaRecommendation.keyListener = null
                     }
 
                 }
