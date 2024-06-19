@@ -23,9 +23,13 @@ class UploadImageViewModel: ViewModel() {
     private val _uploadError = MutableLiveData<String>()
     val uploadError: LiveData<String> = _uploadError
 
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> = _isLoading
+
     fun uploadImage(context: Context, imageUri: Uri) {
         viewModelScope.launch {
             try {
+                _isLoading.value = true
                 // Convert URI to File
                 val file = uriToFile(imageUri, context)
 
@@ -37,13 +41,19 @@ class UploadImageViewModel: ViewModel() {
                 val body = MultipartBody.Part.createFormData("image", reducedFile.name, requestFile)
 
                 // Make API call
+                _isLoading.value = false
                 val response = ApiConfig.getApiService().uploadImage(body)
                 _uploadSuccess.postValue(response)
+
             } catch (e: Exception) {
                 if (e is HttpException) {
+                    _isLoading.value = false
+
                     val errorMessage = e.response()?.errorBody()?.string()
+
                     _uploadError.postValue(errorMessage.toString())
                 } else {
+                    _isLoading.value = false
                     _uploadError.postValue(e.message.toString())
                 }
             }

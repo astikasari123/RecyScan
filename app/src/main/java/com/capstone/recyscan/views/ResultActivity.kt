@@ -42,16 +42,34 @@ class ResultActivity : AppCompatActivity() {
                     it.data.let {
                         tvResultWaste.text = it?.result
                         edtAreaCount.setText("${it?.priceAfter} \n ${it?.priceBefore}")
-                        edtAreaRecommendation.setText("${it?.youtubeLink}")
+                        val youtubeLinkText = it?.youtubeLink
+                        edtAreaRecommendation.setText(youtubeLinkText)
                         Linkify.addLinks(edtAreaRecommendation, Linkify.WEB_URLS)
                         edtAreaRecommendation.movementMethod = android.text.method.LinkMovementMethod.getInstance()
                         edtAreaRecommendation.keyListener = null
+                        edtAreaRecommendation.isFocusable = false
+                        edtAreaRecommendation.isClickable = true
                     }
 
                 }
             }
             uploadError.observe(this@ResultActivity) {
                 Toast.makeText(this@ResultActivity, it, Toast.LENGTH_SHORT).show()
+            }
+            isLoading.observe(this@ResultActivity) {
+                binding.apply {
+                    val loadingText = "Memuat hasil prediksi"
+                    if (it)
+                    {
+                        tvResultWaste.text = loadingText
+                        edtAreaCount.setText(loadingText)
+                        edtAreaRecommendation.setText(loadingText)
+                    } else {
+                        tvResultWaste.text = ""
+                        edtAreaCount.setText("")
+                        edtAreaRecommendation.setText("")
+                    }
+                }
             }
             uploadImage(this@ResultActivity, uri)
         }
