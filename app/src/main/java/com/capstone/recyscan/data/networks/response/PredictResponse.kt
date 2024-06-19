@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class PredictResponse(
 
 	@field:SerializedName("data")
-	val data: PredictResult? = null,
+	val data: Data? = null,
 
 	@field:SerializedName("message")
 	val message: String? = null,
@@ -14,7 +14,7 @@ data class PredictResponse(
 	val status: String? = null
 )
 
-data class PredictResult(
+data class Data(
 
 	@field:SerializedName("result")
 	val result: String? = null,
@@ -22,9 +22,15 @@ data class PredictResult(
 	@field:SerializedName("createdAt")
 	val createdAt: String? = null,
 
-	@field:SerializedName("suggestion")
-	val suggestion: String? = null,
+	@field:SerializedName("priceBefore")
+	val priceBefore: String? = null,
+
+	@field:SerializedName("youtubeLink")
+	val youtubeLink: String? = null,
 
 	@field:SerializedName("id")
-	val id: String? = null
+	val id: String? = null,
+
+	@field:SerializedName("priceAfter")
+	val priceAfter: String? = null
 )

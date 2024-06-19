@@ -37,8 +37,12 @@ class ResultActivity : AppCompatActivity() {
         uploadImageViewModel.apply {
             uploadSuccess.observe(this@ResultActivity) {
                 binding.apply {
-                    tvResultWaste.text = it.data?.result
-                    it.data?.suggestion?.let { it1 -> wvSuggestion.loadData(it1, "text/html", "UTF-8") }
+                    it.data.let {
+                        tvResultWaste.text = it?.result
+                        edtAreaCount.text = it?.priceAfter ?: ""
+//                            "${it?.priceAfter} \n ${it?.priceBefore}"
+                    }
+
                 }
             }
             uploadError.observe(this@ResultActivity) {
