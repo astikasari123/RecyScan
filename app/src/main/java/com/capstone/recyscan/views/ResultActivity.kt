@@ -1,11 +1,11 @@
 package com.capstone.recyscan.views
 
+import android.annotation.SuppressLint
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.capstone.recyscan.R
 import com.capstone.recyscan.databinding.ActivityResultBinding
@@ -33,14 +33,14 @@ class ResultActivity : AppCompatActivity() {
 
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setupViewModel(uri: Uri) {
         uploadImageViewModel.apply {
             uploadSuccess.observe(this@ResultActivity) {
                 binding.apply {
                     it.data.let {
                         tvResultWaste.text = it?.result
-                        edtAreaCount.text = it?.priceAfter ?: ""
-//                            "${it?.priceAfter} \n ${it?.priceBefore}"
+                        edtAreaCount.setText("${it?.priceAfter} \n ${it?.priceBefore}")
                     }
 
                 }
