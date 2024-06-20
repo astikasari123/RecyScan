@@ -15,4 +15,7 @@ interface DaoHistory {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertHistory(entityHistory: EntityHistory)
 
+    @Query("DELETE FROM EntityHistory WHERE EntityHistory.id = :id")
+    suspend fun deleteHistory(id: String) : Int
+
 }

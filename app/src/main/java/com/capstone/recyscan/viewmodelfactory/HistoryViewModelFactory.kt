@@ -7,9 +7,10 @@ import com.capstone.recyscan.di.Injection
 import com.capstone.recyscan.repository.RepositoryHistory
 import com.capstone.recyscan.viewmodel.HistoryViewModel
 
+@Suppress("UNCHECKED_CAST")
 class HistoryViewModelFactory(private val repositoryHistory: RepositoryHistory) : ViewModelProvider.NewInstanceFactory() {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(HistoryViewModelFactory::class.java)) {
+        if (modelClass.isAssignableFrom(HistoryViewModel::class.java)) {
             return HistoryViewModel(repositoryHistory) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)

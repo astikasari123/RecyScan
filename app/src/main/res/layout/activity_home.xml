@@ -5,51 +5,55 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark_sea_green"
+    android:background="@color/pale_green"
     tools:context=".views.HomeActivity">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/iv_user_profile"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="38dp"
-        android:src="@drawable/img_sample_user"
+    <TextView
+        android:id="@+id/tv_headline_1"
+        style="@style/HeadlineText"
+        android:text="Recy"
+        app:layout_constraintBottom_toBottomOf="@id/iv_app_logo"
+        app:layout_constraintEnd_toStartOf="@id/iv_app_logo"
+        app:layout_constraintTop_toTopOf="@id/iv_app_logo" />
+
+    <ImageView
+        android:id="@+id/iv_app_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_marginTop="23dp"
+        android:src="@drawable/recyscan_icon"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_user_name"
+        android:id="@+id/tv_headline_2"
         style="@style/HeadlineText"
-        android:layout_marginStart="10dp"
-        android:text="@string/example_name_user"
-        android:textColor="@color/pale_green"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="@id/iv_user_profile"
-        app:layout_constraintStart_toEndOf="@id/iv_user_profile"
-        app:layout_constraintTop_toTopOf="@id/iv_user_profile" />
+        android:text="Scan"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_app_logo"
+        app:layout_constraintStart_toEndOf="@+id/iv_app_logo"
+        app:layout_constraintTop_toTopOf="@+id/iv_app_logo" />
 
     <TextView
         android:id="@+id/tv_desc"
         style="@style/HeadlineText"
         android:layout_width="match_parent"
         android:layout_marginStart="35dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="35dp"
         android:elegantTextHeight="true"
         android:text="@string/app_description"
-        android:textColor="@color/pale_green"
+        android:textColor="@color/dark_brown"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_user_profile" />
+        app:layout_constraintTop_toBottomOf="@id/iv_app_logo" />
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="-45dp"
-        app:cardBackgroundColor="@color/pale_green"
+        app:cardBackgroundColor="@color/dark_sea_green"
         app:cardCornerRadius="45dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_desc">
@@ -63,26 +67,91 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <com.capstone.recyscan.components.ComponentCustomCardButton
+                <com.google.android.material.card.MaterialCardView
                     android:id="@+id/btn_card_scan"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
-                    android:layout_marginTop="36dp"
                     android:layout_marginEnd="25dp"
+                    android:layout_marginTop="36dp"
                     android:layout_marginBottom="35dp"
-                    app:cardImage="@drawable/scanner_icon"
-                    app:cardText="Pindai \nSampahmu" />
+                    app:cardBackgroundColor="@color/dark_brown"
+                    app:cardCornerRadius="45dp"
+                    app:rippleColor="@color/gray">
 
-                <com.capstone.recyscan.components.ComponentCustomCardButton
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/iv_scan"
+                            android:layout_width="93dp"
+                            android:layout_height="93dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="20dp"
+                            android:src="@drawable/scanner_icon"
+                            android:layout_marginBottom="20dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/title_scan"
+                            style="@style/HeadlineText"
+                            android:gravity="center"
+                            android:text="Pindai \nSampahmu"
+                            android:textColor="@color/pale_green"
+                            android:textSize="17.4sp"
+                            app:layout_constraintBottom_toBottomOf="@id/iv_scan"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/iv_scan"
+                            app:layout_constraintTop_toTopOf="@id/iv_scan" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
                     android:id="@+id/btn_card_history"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
                     android:layout_marginEnd="25dp"
-                    android:layout_marginBottom="75dp"
-                    app:cardImage="@drawable/history_icon"
-                    app:cardText="Riwayat \nPindaianmu" />
+                    android:layout_marginTop="36dp"
+                    android:layout_marginBottom="35dp"
+                    app:cardBackgroundColor="@color/dark_brown"
+                    app:cardCornerRadius="45dp"
+                    app:rippleColor="@color/gray">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/iv_history"
+                            android:layout_width="93dp"
+                            android:src="@drawable/history_icon"
+                            android:layout_height="93dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="20dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/title_history"
+                            style="@style/HeadlineText"
+                            android:text="Riwayat \nPindaianmu"
+                            android:gravity="center"
+                            android:textColor="@color/pale_green"
+                            android:textSize="17.4sp"
+                            app:layout_constraintBottom_toBottomOf="@id/iv_history"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/iv_history"
+                            app:layout_constraintTop_toTopOf="@id/iv_history" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
 
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>

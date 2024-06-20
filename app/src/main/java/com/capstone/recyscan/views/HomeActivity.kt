@@ -37,9 +37,9 @@ class HomeActivity : AppCompatActivity() {
             btnCardHistory.setOnClickListener {
                 startActivity(Intent(this@HomeActivity, HistoryActivity::class.java))
             }
-            ivUserProfile.setOnClickListener {
-                startActivity(Intent(this@HomeActivity, ProfileActivity::class.java))
-            }
+//            ivUserProfile.setOnClickListener {
+//                startActivity(Intent(this@HomeActivity, ProfileActivity::class.java))
+//            }
         }
 
     }

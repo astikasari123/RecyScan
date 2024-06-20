@@ -5,7 +5,7 @@ import com.capstone.recyscan.data.local.entity.EntityHistory
 import com.capstone.recyscan.data.local.room.DaoHistory
 
 class RepositoryHistory private constructor(
-    private val daoHistory: DaoHistory
+    private val daoHistory: DaoHistory,
 ) {
     fun getAllHistory(): LiveData<List<EntityHistory>> {
         return daoHistory.getAllHistory()
@@ -15,12 +15,17 @@ class RepositoryHistory private constructor(
         return daoHistory.insertHistory(entityHistory)
     }
 
+    suspend fun deleteHistory(id: String): Int {
+        return daoHistory.deleteHistory(id)
+    }
+
+
     companion object {
         @Volatile
         private var instance: RepositoryHistory? = null
 
         fun getInstanceOfRepositoryHistory(
-            daoHistory: DaoHistory
+            daoHistory: DaoHistory,
         ): RepositoryHistory = instance ?: synchronized(this) {
             instance ?: RepositoryHistory(daoHistory).also { instance = it }
         }

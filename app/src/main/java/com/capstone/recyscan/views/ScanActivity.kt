@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
@@ -46,8 +47,6 @@ class ScanActivity : AppCompatActivity() {
 
     }
 
-
-
     private fun ActivityScanBinding.setupToolBar() {
         setSupportActionBar(mToolbar);
         mToolbar.apply {
@@ -86,7 +85,7 @@ class ScanActivity : AppCompatActivity() {
         }
     }
 
-    private fun ActivityScanBinding.takePhoto() {
+    private fun takePhoto() {
         val imageCapture = imageCapture ?: return
 
         val photoFile = createFile()
@@ -98,14 +97,12 @@ class ScanActivity : AppCompatActivity() {
             object : ImageCapture.OnImageSavedCallback {
                 override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
                     val savedUri = outputFileResults.savedUri ?: Uri.fromFile(photoFile)
-                    val message = "Photo capture succeeded: $savedUri"
-                    Snackbar.make(viewFinder, message, Snackbar.LENGTH_LONG).show()
+                    Toast.makeText(this@ScanActivity, "Foto berhasil diambil", Toast.LENGTH_SHORT).show()
                     startActivity(
                         Intent(
                             this@ScanActivity,
                             ResultActivity::class.java
                         ).apply {
-
                             putExtra(ResultActivity.IMAGE_URI_VALUE, savedUri.toString())
                             putExtra(ResultActivity.TOOLBAR_TITLE, true)
                         }
@@ -114,7 +111,8 @@ class ScanActivity : AppCompatActivity() {
 
                 override fun onError(exception: ImageCaptureException) {
                     val message = "Photo capture failed: ${exception.message}"
-                    Snackbar.make(viewFinder, message, Snackbar.LENGTH_LONG).show()
+                    Toast.makeText(this@ScanActivity, "Terjadi kesalahan: Foto gagal diambil", Toast.LENGTH_SHORT).show()
+
                 }
             }
         )

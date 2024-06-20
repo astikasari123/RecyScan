@@ -1,6 +1,7 @@
 package com.capstone.recyscan.views
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.capstone.recyscan.R
@@ -10,10 +11,10 @@ import com.capstone.recyscan.databinding.ActivityHistoryBinding
 import com.capstone.recyscan.viewmodel.HistoryViewModel
 import com.capstone.recyscan.viewmodelfactory.HistoryViewModelFactory
 import com.capstone.recyscan.views.adapters.AdapterItemHistory
-import java.util.Date
 
-class HistoryActivity : AppCompatActivity() {
+class HistoryActivity : AppCompatActivity(), AdapterItemHistory.HistoryAction {
     private lateinit var binding: ActivityHistoryBinding
+    private lateinit var adapterHistory: AdapterItemHistory
     private val historyViewModel: HistoryViewModel by viewModels {
         HistoryViewModelFactory.getInstanceOfHistoryViewModelFactory(this@HistoryActivity)
     }
@@ -22,8 +23,8 @@ class HistoryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHistoryBinding.inflate(layoutInflater).apply {
             setContentView(root)
-            setupToolBar()
             setupRecyclerView()
+            setupToolBar()
         }
     }
 
@@ -38,22 +39,24 @@ class HistoryActivity : AppCompatActivity() {
     }
 
     private fun ActivityHistoryBinding.setupRecyclerView() {
+        adapterHistory = AdapterItemHistory(this@HistoryActivity)
         rvHistory.layoutManager = LinearLayoutManager(this@HistoryActivity)
-        rvHistory.adapter = AdapterItemHistory(generateDummyHistoryData(), this@HistoryActivity)
+        rvHistory.adapter = adapterHistory
+        historyViewModel.apply {
+            getAllHistory().observe(this@HistoryActivity) { valueListHistory ->
+                if (valueListHistory.isNullOrEmpty()) {
+                    rvHistory.visibility = View.GONE
+                    emptyHistoryLayout.root.visibility = View.VISIBLE
+                } else {
+                    emptyHistoryLayout.root.visibility = View.GONE
+                    rvHistory.visibility = View.VISIBLE
+                    adapterHistory.submitList(valueListHistory.reversed())
+                }
+            }
+        }
     }
 
-    private fun generateDummyHistoryData(): List<EntityHistory> {
-        val dummyData = mutableListOf<EntityHistory>()
-        for (i in 1..10) {
-            dummyData.add(
-                EntityHistory(
-                    id = i,
-                    image = R.drawable.gallery_icon.toString(),
-                    desc = "Description for item $i",
-                    date = Date().toString()
-                )
-            )
-        }
-        return dummyData
+    override fun onDeleteClicked(history: EntityHistory) {
+        historyViewModel.deleteHistory(history.id.toString())
     }
 }

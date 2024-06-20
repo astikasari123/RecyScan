@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -7,92 +7,112 @@
     android:layout_height="match_parent"
     tools:context=".views.ResultActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/mToolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/dark_sea_green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Hasil"
+        app:titleCentered="true"
+        app:titleTextAppearance="@style/ToolBarStyle" />
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/mToolbar"
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mToolbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/dark_sea_green"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:title="Hasil"
-            app:titleCentered="true"
-            app:titleTextAppearance="@style/ToolBarStyle" />
+            android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/iv_result"
-            android:layout_width="match_parent"
-            android:layout_height="190dp"
-            android:layout_marginStart="90dp"
-            android:layout_marginTop="11dp"
-            android:layout_marginEnd="90dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/mToolbar"
-            tools:src="@tools:sample/backgrounds/scenic" />
+            <ImageView
+                android:id="@+id/iv_result"
+                android:layout_width="match_parent"
+                android:layout_height="190dp"
+                android:layout_marginStart="90dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="90dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/backgrounds/scenic" />
 
-        <TextView
-            android:id="@+id/headlide_type_of_waste"
-            style="@style/HeadlineText"
-            android:text="Jenis Sampah"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_result" />
+            <TextView
+                android:id="@+id/headlide_type_of_waste"
+                style="@style/HeadlineText"
+                android:text="Jenis Sampah"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_result" />
 
-        <TextView
-            android:id="@+id/tv_result_waste"
-            style="@style/HeadlineText"
-            android:layout_marginTop="6dp"
-            android:text="Jenis Sampah"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/headlide_type_of_waste" />
+            <TextView
+                android:id="@+id/tv_result_waste"
+                style="@style/HeadlineText"
+                android:layout_marginTop="6dp"
+                android:text="Jenis Sampah"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/headlide_type_of_waste" />
 
-        <EditText
-            android:id="@+id/edt_area_count"
-            style="@style/OutlinedEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:layout_marginTop="34dp"
-            android:gravity="top"
-            android:inputType="textMultiLine"
-            android:lines="5"
-            android:minLines="7"
-            android:enabled="false"
-            android:scrollbars="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_result_waste" />
-        <EditText
-            android:id="@+id/edt_area_recommendation"
-            android:linksClickable="true"
-            style="@style/OutlinedEditText"
-            android:autoLink="web"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:gravity="top"
-            android:lines="5"
-            android:minLines="7"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:scrollbars="vertical"
-            android:layout_marginBottom="36dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/edt_area_count"
-            android:cursorVisible="false"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:inputType="none"/>
+            <EditText
+                android:id="@+id/edt_area_count"
+                style="@style/OutlinedEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="34dp"
+                android:layout_marginBottom="12dp"
+                android:enabled="false"
+                android:gravity="top"
+                android:inputType="textMultiLine"
+                android:lines="5"
+                android:minLines="7"
+                android:scrollbars="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_result_waste" />
+
+            <EditText
+                android:id="@+id/edt_area_recommendation"
+                style="@style/OutlinedEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="36dp"
+                android:autoLink="web"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:gravity="top"
+                android:inputType="none"
+                android:lines="5"
+                android:linksClickable="true"
+                android:minLines="7"
+                android:scrollbars="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edt_area_count" />
+
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="35dp"
+                android:backgroundTint="@color/dark_sea_green"
+                android:text="Simpan"
+                app:layout_constraintTop_toBottomOf="@+id/edt_area_recommendation" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

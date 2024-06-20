@@ -16,7 +16,7 @@ import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import retrofit2.HttpException
 
-class UploadImageViewModel: ViewModel() {
+class UploadImageViewModel : ViewModel() {
     private val _uploadSuccess = MutableLiveData<PredictResponse>()
     val uploadSuccess: LiveData<PredictResponse> = _uploadSuccess
 
@@ -27,9 +27,10 @@ class UploadImageViewModel: ViewModel() {
     val isLoading: LiveData<Boolean> = _isLoading
 
     fun uploadImage(context: Context, imageUri: Uri) {
+        _isLoading.postValue(true)
         viewModelScope.launch {
             try {
-                _isLoading.value = true
+                _uploadError.value = ""
                 // Convert URI to File
                 val file = uriToFile(imageUri, context)
 
@@ -41,19 +42,17 @@ class UploadImageViewModel: ViewModel() {
                 val body = MultipartBody.Part.createFormData("image", reducedFile.name, requestFile)
 
                 // Make API call
-                _isLoading.value = false
                 val response = ApiConfig.getApiService().uploadImage(body)
+                _isLoading.postValue(false)
                 _uploadSuccess.postValue(response)
 
             } catch (e: Exception) {
                 if (e is HttpException) {
-                    _isLoading.value = false
-
+                    _isLoading.postValue(false)
                     val errorMessage = e.response()?.errorBody()?.string()
-
                     _uploadError.postValue(errorMessage.toString())
                 } else {
-                    _isLoading.value = false
+                    _isLoading.postValue(false)
                     _uploadError.postValue(e.message.toString())
                 }
             }

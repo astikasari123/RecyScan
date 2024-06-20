@@ -11,21 +11,32 @@
         android:id="@+id/mToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:title="Riwayat Pindaian"
-        app:titleTextAppearance="@style/ToolBarStyle"
-        app:titleCentered="true"
         android:background="@color/dark_sea_green"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Riwayat Pindaian"
+        app:titleCentered="true"
+        app:titleTextAppearance="@style/ToolBarStyle" />
+
+    <include
+        android:id="@+id/empty_history_layout"
+        layout="@layout/layout_empty_history"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mToolbar" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_history"
-        android:layout_marginTop="42dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        tools:listitem="@layout/item_history"
+        android:layout_marginTop="42dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mToolbar"/>
+        app:layout_constraintTop_toBottomOf="@id/mToolbar"
+        tools:listitem="@layout/item_history" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

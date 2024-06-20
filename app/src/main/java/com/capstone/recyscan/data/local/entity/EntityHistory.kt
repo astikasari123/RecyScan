@@ -10,8 +10,14 @@ data class EntityHistory(
     @ColumnInfo(name = "id")
     val id: Int = 0,
 
-    @ColumnInfo(name = "desc")
-    val desc: String,
+    @ColumnInfo(name = "scan_result")
+    val scanResult: String,
+
+    @ColumnInfo(name = "count_result")
+    val countResult: String,
+
+    @ColumnInfo(name = "recommend_result")
+    val recommendResult: String,
 
     @ColumnInfo(name = "image")
     val image: String,
