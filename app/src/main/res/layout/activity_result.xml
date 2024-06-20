@@ -91,6 +91,7 @@
                 android:focusableInTouchMode="false"
                 android:gravity="top"
                 android:inputType="none"
+                android:textColorLink="@color/dark_brown"
                 android:lines="5"
                 android:linksClickable="true"
                 android:minLines="7"
